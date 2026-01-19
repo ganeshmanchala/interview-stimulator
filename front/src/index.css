@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+/* Simple CSS variables inspired by Lovable style */
+:root{
+  --radius: 12px;
+  --gradient-primary: linear-gradient(90deg,#6C5CE7,#3B82F6);
+  --shadow-glow: 0 8px 30px rgba(108,92,231,0.18);
+}
+
+
+/* Base */
+html,body,#root { height: 100%; }
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* small helpers */
+.container { max-width: 1200px; margin-left:auto; margin-right:auto; padding: 2rem; }
+.card { background: rgba(255,255,255,0.6); border-radius: var(--radius); box-shadow: 0 6px 24px rgba(16,24,40,0.04); }

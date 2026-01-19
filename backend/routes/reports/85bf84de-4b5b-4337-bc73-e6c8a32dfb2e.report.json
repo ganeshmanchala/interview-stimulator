@@ -1,0 +1,10 @@
+{
+  "question": "You are the principal architect for a large enterprise. The CTO wants to pursue a multi-cloud strategy to avoid vendor lock-in and leverage best-of-breed services. Describe the key technical and organizational challenges you anticipate, and outline a governance framework to manage cost, security, and interoperability across AWS, Azure, and GCP.",
+  "scores": {
+    "confidence": 0.5,
+    "correctness": 0,
+    "feedback": "The provided response is a meta-comment about the recording process and does not address the technical question. Please provide your actual answer to the question for evaluation.",
+    "fluency": 0.1
+  },
+  "transcript": "Oh, when we stop recording, we will get the live feedback."
+}
