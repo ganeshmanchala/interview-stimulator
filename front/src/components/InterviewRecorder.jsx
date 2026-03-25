@@ -11,11 +11,17 @@ export default function InterviewRecorder({ sessionId = "demo-session", question
   const [uploads, setUploads] = useState({});
   const [reports, setReports] = useState({});
   const [isQuestionSpoken, setIsQuestionSpoken] = useState(false);
-  const [voices, setVoices] = useState([]);
   const [selectedVoiceURI, setSelectedVoiceURI] = useState(null);
   const [speechRate, setSpeechRate] = useState(1.0);
   const [isPlayingQuestion, setIsPlayingQuestion] = useState(false);
   const navigate = useNavigate();
+  const [selectedVoice, setSelectedVoice] = useState("female");
+
+  const voiceMap = {
+  female: "TrXeCDRboKSzemKz1SeI",
+  male: "XwSdJ6CBKhZOy9kIJWfP"
+};
+
 
   const q = questions[index] || { id: `q-${index}`, text: "No question provided." };
 
@@ -38,41 +44,45 @@ export default function InterviewRecorder({ sessionId = "demo-session", question
     };
   }, []);
 
-  useEffect(() => {
-    function loadVoices() {
-      const v = window.speechSynthesis.getVoices();
-      setVoices(v);
-      if (v.length && !selectedVoiceURI) {
-        const en = v.find((vv) => vv.lang?.startsWith("en"));
-        setSelectedVoiceURI(en ? en.voiceURI : v[0].voiceURI);
-      }
-    }
-    loadVoices();
-    window.speechSynthesis.onvoiceschanged = loadVoices;
-    return () => (window.speechSynthesis.onvoiceschanged = null);
-  }, []);
+
 
   useEffect(() => {
     setIsQuestionSpoken(false);
   }, [index]);
 
-  function speakQuestionPromise(text) {
-    return new Promise((resolve, reject) => {
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.rate = speechRate;
-      const voice = voices.find((v) => v.voiceURI === selectedVoiceURI);
-      if (voice) utter.voice = voice;
-      utter.onstart = () => setIsPlayingQuestion(true);
-      utter.onend = () => {
-        setIsPlayingQuestion(false);
-        setIsQuestionSpoken(true);
-        resolve();
-      };
-      utter.onerror = reject;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utter);
+ async function speakQuestionPromise(text) {
+  try {
+    setIsPlayingQuestion(true);
+
+    const response = await fetch("http://localhost:4000/api/tts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text,
+        voiceId: voiceMap[selectedVoice]
+      }),
     });
+
+
+    const blob = await response.blob();
+    const audioUrl = URL.createObjectURL(blob);
+    const audio = new Audio(audioUrl);
+
+    audio.onended = () => {
+      setIsPlayingQuestion(false);
+      setIsQuestionSpoken(true);
+    };
+
+    audio.play();
+
+  } catch (err) {
+    console.error("TTS failed:", err);
   }
+}
+
+
 
   async function handlePlayQuestion() {
     try {
@@ -171,34 +181,33 @@ export default function InterviewRecorder({ sessionId = "demo-session", question
   }
 
   function renderVoiceSelector() {
-    if (!voices.length) return null;
     return (
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 text-sm">
-        <label className="font-medium text-gray-700">Voice:</label>
-        <select 
-          value={selectedVoiceURI || ""} 
-          onChange={(e) => setSelectedVoiceURI(e.target.value)}
-          className="border border-gray-300 rounded-lg px-3 py-1 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        >
-          {voices.map((v) => (
-            <option key={v.voiceURI} value={v.voiceURI}>
-              {v.name} ({v.lang})
-            </option>
-          ))}
-        </select>
-        <div className="flex items-center gap-2">
-          <label className="font-medium text-gray-700">Rate:</label>
-          <input
-            type="range"
-            min="0.6"
-            max="1.4"
-            step="0.1"
-            value={speechRate}
-            onChange={(e) => setSpeechRate(+e.target.value)}
-            className="w-20"
-          />
-          <span className="text-xs text-gray-600">{speechRate.toFixed(1)}x</span>
-        </div>
+      <label className="font-medium text-gray-700">Voice:</label>
+      <select 
+        value={selectedVoice} 
+        onChange={(e) => {
+        setSelectedVoice(e.target.value);
+        setSelectedVoiceURI(voiceMap[e.target.value]);
+        }}
+        className="border border-gray-300 rounded-lg px-3 py-1 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      >
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
+      <div className="flex items-center gap-2">
+        <label className="font-medium text-gray-700">Rate:</label>
+        <input
+        type="range"
+        min="0.6"
+        max="1.4"
+        step="0.1"
+        value={speechRate}
+        onChange={(e) => setSpeechRate(+e.target.value)}
+        className="w-20"
+        />
+        <span className="text-xs text-gray-600">{speechRate.toFixed(1)}x</span>
+      </div>
       </div>
     );
   }

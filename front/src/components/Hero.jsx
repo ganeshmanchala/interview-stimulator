@@ -53,7 +53,7 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div className="text-center">
             <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">1000+</div>
             <div className="text-gray-600">Interviews Conducted</div>
@@ -66,7 +66,7 @@ const Hero = () => {
             <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">4.8/5</div>
             <div className="text-gray-600">User Rating</div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Floating elements */}

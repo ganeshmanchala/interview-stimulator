@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "interview-stimulator",
+  "private_key_id": "344e7f0a55ca12069136b44457101c3366365712",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCaDNgBtQhOqRc7\n9fk14mLFg0VBD773X5JmbkKm+mfxhFm4R2SmAz3VM6fH+QTB6gunkxfIqTmHxaCi\nY90gnqgkcUCUxa5CxgSyUUZ0O6rFuRAnyPjcEs3nwBTfH5IlMGO4i0VoJswdNqkg\nuA+TlBoCwq3shP6fRq1I59nm3BpDQAALiABizL00OCEWXxU79Gf10nC7r1ZGUCO9\n3lJP7SuUA6hYNDEX+OaODXTUBdkjLK1P14FGMwCG0IFmkxqs2RHt1/Kb1rgc8ryZ\n7nzld1E7nCJlxJqI4Avrq2DaWUpUzk4hrPmITz2PKfI/DnRRHrLm921aHJTlnffx\nUpnFYK0tAgMBAAECggEAR65YSJsTLX7yx7zR5Gfd6+gELp0EEBlRhwYhT49PFIuw\nL9ZQmAsEF5O8q4lM1GpyV9xTAdT0Zx/negib2VTaCnMESPWe+4UmpE67SNSGxxAw\n20Jhwg2h8Adp7tTC7TkR/coYVrlO2v0XP5lF7jbIz6YExfywei6p7TWtKAYc1lNV\noVnC7S3BFnPh67xwBunzF9icMSFsJeRmfYnrEm+ixcXyYbUrW5XjqH8o0QOsNMXs\nLhQZppiTBxm32nzrfNQIyu6UXzeg787uAMTMuCKydJOOvLs62IAGT1VcD7GtYWob\nO1pJSgKFFn9KoRJ8z3nrC15MBWPTEAR7Nraax7WU5QKBgQDHyCFpC/Bm14WHWfbt\nQbwdEVpoxQWDiAF5mVq4kPl0KwPcObjbYh0De73xk3RnddvhktlJCDgNiyJCNrvC\nzyDOSFnfLIvBuckaDuakk8F81WNFJs7YSdN6hoq22v7krELnqcA92pmvofrbxlk0\nqQjyUNr3HFuDOvoQbC7V0HUSbwKBgQDFZk2Y85yGrlIbeyjJITsWhNZsEMZFWu7m\n1nJ8nw3dU3xTJOyjncn2Ro+9JDTSeVNOaXh77p0fmI6IFfQWWL3Q/6qf6lPIu4+q\nyhGpr77biFjSGF6JvjcDhQOOT5fN+Lx0RAPlvhSokk6M7YEPHjgZegk54HBMdPFC\nvI4w2gdYIwKBgB2MRwy/XE4JoFE1iCTtLQJrl6CZS0h57CXs/ZMAtjRtTEPdMa8Y\n4suqGJzLP1MyBlRloMeBdLDkHCwI5lpYwjRgVRKCByWe8dRt0cUTqXFqKiWHKN6q\nhKHBlnCXEU4HAFo9LBa55zMn1O9+daEpQw570PbtdceCCIw3Q/IRw873AoGAFtca\nfWsanl7HM1TRyEvnCVj/cmuSdW3rHJyNjKver9A8H2azVs8oEi3h7dGlpwDQyc7c\nWQKn/YLqYwafQoKsG+WpOW2kmiJRokJVPtwN6lrhZBXbwnZW6TpXyfydpQB11cIU\n7V1MCKE9I4NLnpMxjIkZTjAQ7lfNnpownahslx8CgYAuuH/Dm4xiGoc4ugppfYCK\ntmcfOJsqZxfb2G+i7XB4z/krmfa89q5vZTHdmgucZj5c80jaN+GAOG6bd/vFC1T4\nN373XaO/xe6BdBKHirMo7naI3sx3f1J+/fVurr7EYXwKlS2Fp0IiwRB/NlDid+Y+\nBKrZ/lwIkGPmkb83F8cduw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "interview-tts-service@interview-stimulator.iam.gserviceaccount.com",
+  "client_id": "111737600947470471682",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/interview-tts-service%40interview-stimulator.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

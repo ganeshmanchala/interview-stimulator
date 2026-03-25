@@ -1,7 +1,8 @@
 {
   "dependencies": {
+    "@google-cloud/text-to-speech": "^6.4.0",
     "@google/genai": "^1.19.0",
-    "axios": "^1.12.1",
+    "axios": "^1.13.5",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "cookie-parser": "^1.4.7",
